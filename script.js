@@ -1,6 +1,13 @@
 var span = $('span');
-span.each(function(index, element) {
-    if(index % 2 == 0) {
+var randomIgnored = Math.floor(Math.random() * span.length);
+console.log(randomIgnored);
+span.each(function(index, element, randomIgnored) {
+    var ignored = []; 
+    console.log(randomIgnored);
+    if(index == randomIgnored) {
+        $(element).append(ignored);
+    } 
+    if(element.inArray(ignored)) {
         $(element).css('color', 'red');
     }
 })
